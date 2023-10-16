@@ -67,7 +67,7 @@ export default {
     syncAllBusinesses () {
       this.business = null
       axios
-        .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/sync_business/')
+        .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/integration/sync_business/')
         .then(data => {
           this.status = data.status
           this.businesses()
