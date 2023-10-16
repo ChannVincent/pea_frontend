@@ -29,7 +29,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/api/business_list/')
+      .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/api/business/')
       .then(data => { this.business = data.data })
   }
 }
