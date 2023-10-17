@@ -3,7 +3,18 @@
     <div v-if="business === null">
       LOADING
     </div>
-    <div v-else>
+    <div clas="flex flex-col items-center" v-else>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-5 mx-5 max-w-5xl self-centers">
+        <div 
+          v-for="b in business.businesses"
+          :key="b.pk"
+        >
+            <BusinessCard 
+              :title="b.name"
+              :subtitle="b.symbol"
+            />
+        </div>
+      </div>
 
       <button style="margin:10px; padding:5px; width: 300px;" @click="syncAllBusinesses()">
         synchronise all businesses
@@ -46,9 +57,13 @@
 </template>
 <script>
 import axios from 'axios'
+import BusinessCard from '@/components/BusinessCard.vue'
 
 export default {
   name: 'BusinessList',
+  components: {
+    BusinessCard,
+  },
   data () {
     return {
       business: null,
