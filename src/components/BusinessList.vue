@@ -23,7 +23,7 @@
             :key="b.pk"
           >
             <td>
-              <router-link :to="'/detail/'+ b.pk + '/'">
+              <router-link :to="'/business/'+ b.pk + '/'">
                 {{ b.name }} [{{ b.symbol }}]
               </router-link>
             </td>
