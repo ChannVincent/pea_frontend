@@ -23,20 +23,24 @@
             <table class="min-w-full">
             <tbody class="divide-y">
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">marge nette</td>
-                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">10%</td>
-                </tr>
-                <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2">trésorerie</td>
-                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">100M</td>
+                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
+                        {{price(businessDetail.business_ratio.cash_position)}} ({{businessDetail.business_ratio.years_of_cash}} ans)
+                    </td>
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2">bénéfice</td>
-                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">150M</td>
+                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
+                        {{price(businessDetail.business_ratio.earnings)}} ({{businessDetail.business_ratio.net_margin}}%)
+                    </td>
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2">dette</td>
-                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">50M</td>
+                    <td
+                        v-if="businessDetail.business_ratio.years_to_repay_debt" 
+                        class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
+                        {{price(businessDetail.business_ratio.debt)}} ({{businessDetail.business_ratio.years_to_repay_debt}} ans)
+                    </td>
                 </tr>
             </tbody>
             </table>
