@@ -8,7 +8,7 @@
     </div>
     <div v-else>
       <div class="max-w-7xl m-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 mx-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5 mx-5">
           <div 
             v-for="b in business.businesses"
             :key="b.pk"

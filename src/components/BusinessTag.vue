@@ -1,6 +1,6 @@
 <template>
     <div 
-    class="h-7 px-2.5 py-0.5 rounded-full text-sm font-medium whitespace-nowrap" 
+    class="h-7 w-fit px-2.5 py-0.5 rounded-full text-sm font-medium" 
     :class="{
         'bg-gray-200 text-gray-600': type === null, 
         'bg-red-100 text-red-800': type === 'danger',
