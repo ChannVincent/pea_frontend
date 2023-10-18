@@ -60,7 +60,7 @@ import axios from 'axios'
 import BusinessCard from '@/components/BusinessCard.vue'
 
 export default {
-  name: 'BusinessList',
+  name: 'BusinessListView',
   components: {
     BusinessCard,
   },

@@ -49,7 +49,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'BusinessDetail',
+  name: 'BusinessDetailView',
   data () {
     return {
       business: null,

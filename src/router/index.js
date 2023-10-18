@@ -1,25 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import BusinessList from '../views/BusinessList.vue'
-import BusinessDetail from '../views/BusinessDetail.vue'
+import BusinessListView from '../views/BusinessListView.vue'
+import BusinessDetailView from '../views/BusinessDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/todo/',
-      name: 'home',
-      component: HomeView
-    },
-    {
       path: '/',
-      name: 'BusinessList',
-      component: BusinessList
+      name: 'BusinessListView',
+      component: BusinessListView
     },
     {
       path: '/business/:id',
-      name: 'BusinessDetail',
-      component: BusinessDetail
+      name: 'BusinessDetailView',
+      component: BusinessDetailView
     }
   ]
 })
