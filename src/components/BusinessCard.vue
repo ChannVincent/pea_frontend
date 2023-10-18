@@ -23,23 +23,29 @@
             <table class="min-w-full">
             <tbody class="divide-y">
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">trésorerie</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">chiffre d'affaire</td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.cash_position)}} ({{businessDetail.business_ratio.years_of_cash}} ans)
+                        {{price(businessDetail.business_ratio.revenue)}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">bénéfice</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">bénéfice ({{businessDetail.business_ratio.net_margin}}%)</td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.earnings)}} ({{businessDetail.business_ratio.net_margin}}%)
+                        {{price(businessDetail.business_ratio.earnings)}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">dette</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">trésorerie ({{businessDetail.business_ratio.years_of_cash}} années)</td>
+                    <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
+                        {{price(businessDetail.business_ratio.cash_position)}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">dette ({{businessDetail.business_ratio.years_to_repay_debt}} années)</td>
                     <td
                         v-if="businessDetail.business_ratio.years_to_repay_debt" 
                         class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.debt)}} ({{businessDetail.business_ratio.years_to_repay_debt}} ans)
+                        {{price(businessDetail.business_ratio.debt)}}
                     </td>
                 </tr>
             </tbody>
@@ -110,7 +116,7 @@ export default {
             if (price < 1000) {
                 return `${price}M`
             }
-            price = parseInt(price / 1000)
+            price = parseInt(price / 100) / 10
             return `${price}G`
         },
         syncBusiness() {

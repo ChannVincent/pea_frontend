@@ -36,7 +36,6 @@ export default {
   data () {
     return {
       business: null,
-      status: null // unused
     }
   },
   mounted () {
@@ -56,7 +55,6 @@ export default {
       axios
         .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/integration/sync_business/')
         .then(data => {
-          this.status = data.status
           this.businesses()
         })
     },
