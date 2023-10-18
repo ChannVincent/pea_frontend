@@ -60,7 +60,7 @@ export default {
   },
   mounted () {
     axios
-      .get(`https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/business/${this.business_pk}/`)
+      .get(`https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/api/business/${this.business_pk}/`)
       .then(data => {
         this.business = data.data
         this.quarter_reports = this.business.quarter_reports

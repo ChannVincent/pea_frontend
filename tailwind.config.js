@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         "primary": "#00668A",
         "secondary": "#004E71",
+        "gold": "#FFD700",
+        "darkGold": "#D4AF37"
       },
     },
     fontFamily: {

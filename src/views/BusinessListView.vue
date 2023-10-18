@@ -43,15 +43,15 @@ export default {
     this.businesses()
   },
   methods: {
-    businesses () {
+    businesses() {
       axios
-        .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/business/')
+        .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/api/business/')
         .then(data => { this.business = data.data })
     },
     pushBusiness(business) {
       this.$router.push('/business/' + business.pk)
     },
-    syncAllBusinesses () {
+    syncAllBusinesses() {
       this.business = null
       axios
         .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/integration/sync_business/')
