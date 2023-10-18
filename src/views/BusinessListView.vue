@@ -1,68 +1,37 @@
 <template>
   <div>
-    <div v-if="business === null">
-      LOADING
+    <div 
+      v-if="business === null"
+      class="flex flex-col items-center pt-20"
+    >
+      <LoadingSpinner size="xxl" />
     </div>
-    <div clas="flex flex-col items-center" v-else>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-5 mx-5 max-w-5xl self-centers">
-        <div 
-          v-for="b in business.businesses"
-          :key="b.pk"
-        >
-            <BusinessCard 
-              :title="b.name"
-              :subtitle="b.symbol"
-            />
-        </div>
-      </div>
-
-      <button style="margin:10px; padding:5px; width: 300px;" @click="syncAllBusinesses()">
-        synchronise all businesses
-      </button>
-      <table style="margin: auto; margin-top:10px;">
-        <thead>
-          <tr>
-            <th style="width:400px">Business</th>
-            <th style="width:100px">Updated</th>
-            <th style="width:100px">Date</th>
-            <th style="width:100px">Synchronise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
+    <div v-else>
+      <div class="max-w-7xl m-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 mx-5">
+          <div 
             v-for="b in business.businesses"
             :key="b.pk"
           >
-            <td>
-              <router-link :to="'/business/'+ b.pk + '/'">
-                {{ b.name }} [{{ b.symbol }}]
-              </router-link>
-            </td>
-            <td :style="b.is_updated ? 'background-color:green' : 'background-color:red'"></td>
-            <td>{{ b.updated }}</td>
-            <td>
-              <button @click="syncBusiness(b.pk)">
-                synchronise
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div
-      >
+            <BusinessCard 
+              :business="b"
+            />
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 </template>
 <script>
 import axios from 'axios'
 import BusinessCard from '@/components/BusinessCard.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
   name: 'BusinessListView',
   components: {
     BusinessCard,
+    LoadingSpinner,
   },
   data () {
     return {
@@ -79,6 +48,9 @@ export default {
         .get('https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/business/')
         .then(data => { this.business = data.data })
     },
+    pushBusiness(business) {
+      this.$router.push('/business/' + business.pk)
+    },
     syncAllBusinesses () {
       this.business = null
       axios
@@ -88,15 +60,6 @@ export default {
           this.businesses()
         })
     },
-    syncBusiness (businessId) {
-      this.business = null
-      axios
-        .get(`https://04qeb8it0j.execute-api.eu-west-3.amazonaws.com/integration/sync_business/${businessId}`)
-        .then(data => {
-          this.status = data.status
-          this.businesses()
-        })
-    }
   }
 }
 </script>
