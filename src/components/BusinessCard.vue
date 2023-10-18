@@ -1,8 +1,15 @@
 <template>
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div class="px-5 pt-5">
-            <p class="text-lg text-gray-600">{{ businessDetail.name }}</p>
-            <p class="text-xs text-gray-400">{{ businessDetail.symbol }}</p>
+        <div class="px-5 pt-5 flex flex-row">
+            <div class="flex-col">
+                <p class="text-lg text-gray-600">{{ businessDetail.name }}</p>
+                <p class="text-xs text-gray-400">{{ businessDetail.symbol }}</p>
+            </div>
+            <div class="flex-grow" />
+            <div class="flex-col text-right">
+                <p class="text-lg text-gray-500">{{ price(businessDetail.business_info.market_cap) }}</p>
+                <p class="text-xs text-gray-400">{{ capitalisation(businessDetail.business_info.market_cap) }}</p>
+            </div>
         </div>
         <!-- tags -->
         <div class="px-4 pb-5 border-b">
@@ -78,6 +85,30 @@ export default {
         }
     },
     methods: {
+        capitalisation(price) {
+            if (price < 300) {
+                return 'nano cap'
+            }
+            if (price > 300 && price <= 2000) {
+                return 'small cap'
+            }
+            if (price > 2000 && price < 10000) {
+                return 'mid cap'
+            }
+            if (price > 10000 && price < 1000000) {
+                return 'big cap'
+            }
+            if (price > 1000000) {
+                return 'mega cap'
+            }
+        },
+        price(price) {
+            if (price < 1000) {
+                return `${price}M`
+            }
+            price = parseInt(price / 1000)
+            return `${price}G`
+        },
         syncBusiness() {
             if (this.status === 'syncing') {
                 return
