@@ -23,25 +23,37 @@
             <table class="min-w-full">
             <tbody class="divide-y">
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">chiffre d'affaire</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">    
+                        <i class="fa-solid fa-money-bill-1 text-lg mr-2"></i>
+                        chiffre d'affaire
+                    </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
                         {{price(businessDetail.business_ratio.revenue)}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">bénéfice ({{businessDetail.business_ratio.net_margin}}%)</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
+                        <i class="fa-solid fa-coins text-lg mr-2"></i>
+                        bénéfice ({{businessDetail.business_ratio.net_margin}}%)
+                    </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
                         {{price(businessDetail.business_ratio.earnings)}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">trésorerie ({{businessDetail.business_ratio.years_of_cash}} années)</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
+                        <i class="fa-solid fa-piggy-bank text-lg mr-2"></i>
+                        trésorerie ({{businessDetail.business_ratio.years_of_cash}} années)
+                    </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
                         {{price(businessDetail.business_ratio.cash_position)}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="whitespace-nowrap text-sm text-gray-500 py-2">dette ({{businessDetail.business_ratio.years_to_repay_debt}} années)</td>
+                    <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
+                        <i class="fa-solid fa-bomb text-lg mr-2"></i>
+                        dette ({{businessDetail.business_ratio.years_to_repay_debt}} années)
+                    </td>
                     <td
                         v-if="businessDetail.business_ratio.years_to_repay_debt" 
                         class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
