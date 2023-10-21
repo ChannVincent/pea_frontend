@@ -43,7 +43,7 @@
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
                         <i class="fa-solid fa-piggy-bank text-lg mr-2"></i>
-                        trésorerie ({{businessDetail.business_ratio.years_of_cash}} années)
+                        trésorerie ({{parseInt(businessDetail.business_ratio.years_of_cash * 12)}} mois)
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
                         {{price(businessDetail.business_ratio.cash_position)}}
@@ -52,7 +52,7 @@
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
                         <i class="fa-solid fa-bomb text-lg mr-2"></i>
-                        dette ({{businessDetail.business_ratio.years_to_repay_debt}} années)
+                        dette ({{parseInt(businessDetail.business_ratio.years_to_repay_debt * 12)}} mois)
                     </td>
                     <td
                         v-if="businessDetail.business_ratio.years_to_repay_debt" 
