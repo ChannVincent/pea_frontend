@@ -24,7 +24,7 @@
 </template>
 <script>
 import axios from 'axios'
-import BusinessCard from '@/components/BusinessCard.vue'
+import BusinessCard from '@/components/BusinessCard2.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
