@@ -3,12 +3,11 @@
         <div class="px-5 pt-5 flex flex-row">
             <div class="flex-col">
                 <p class="text-lg text-gray-600">{{ businessDetail.name }}</p>
-                <p class="text-xs text-gray-400">{{ businessDetail.symbol }}</p>
+                <p class="text-xs text-gray-300">{{ businessDetail.symbol }}</p>
             </div>
             <div class="flex-grow" />
             <div class="flex-col text-right">
-                <p class="text-lg text-gray-500">{{ price(businessDetail.business_info.market_cap) }}</p>
-                <p class="text-xs text-gray-400">{{ capitalisation(businessDetail.business_info.market_cap) }}</p>
+                <p class="text-md text-gray-500">{{ capitalisation(businessDetail.business_info.market_cap) }}</p>
             </div>
         </div>
         <!-- tags -->
@@ -108,19 +107,19 @@ export default {
     methods: {
         capitalisation(price) {
             if (price < 300) {
-                return 'nano cap'
+                return 'Nano Cap'
             }
             if (price > 300 && price <= 2000) {
-                return 'small cap'
+                return 'Small Cap'
             }
             if (price > 2000 && price < 10000) {
-                return 'mid cap'
+                return 'Mid Cap'
             }
             if (price > 10000 && price < 1000000) {
-                return 'big cap'
+                return 'Big Cap'
             }
             if (price > 1000000) {
-                return 'mega cap'
+                return 'Mega Cap'
             }
         },
         price(price) {
