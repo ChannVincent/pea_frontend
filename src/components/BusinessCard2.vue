@@ -24,7 +24,7 @@
             <tbody>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">    
-                        <i class="fa-solid fa-money-bill-1 text-lg mr-2"></i>
+                        <i class="fa-solid fa-money-bill-1 text-lg mr-4"></i>
                         chiffre d'affaire
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
-                        <i class="fa-solid fa-coins text-lg mr-2"></i>
+                        <i class="fa-solid fa-coins text-lg mr-4"></i>
                         bénéfice ({{businessDetail.business_ratio.net_margin}}%)
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
-                        <i class="fa-solid fa-piggy-bank text-lg mr-2"></i>
+                        <i class="fa-solid fa-piggy-bank text-lg mr-4"></i>
                         trésorerie ({{parseInt(businessDetail.business_ratio.years_of_cash * 12)}} mois)
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
-                        <i class="fa-solid fa-bomb text-lg mr-2"></i>
+                        <i class="fa-solid fa-bomb text-lg mr-4"></i>
                         dette ({{parseInt(businessDetail.business_ratio.years_to_repay_debt * 12)}} mois)
                     </td>
                     <td
