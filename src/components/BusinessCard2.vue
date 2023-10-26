@@ -34,30 +34,30 @@
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
                         <i class="fa-solid fa-coins text-lg mr-4"></i>
-                        bénéfice ({{businessDetail.business_ratio.net_margin}}%)
+                        bénéfice
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.earnings)}}
+                        {{businessDetail.business_ratio.net_margin}}%
                     </td>
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
                         <i class="fa-solid fa-piggy-bank text-lg mr-4"></i>
-                        trésorerie ({{parseInt(businessDetail.business_ratio.years_of_cash * 12)}} mois)
+                        trésorerie
                     </td>
                     <td class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.cash_position)}}
+                        {{time(businessDetail.business_ratio.years_of_cash)}}
                     </td>
                 </tr>
                 <tr>
                     <td class="whitespace-nowrap text-sm text-gray-500 py-2 flex items-center">
                         <i class="fa-solid fa-bomb text-lg mr-4"></i>
-                        dette ({{parseInt(businessDetail.business_ratio.years_to_repay_debt * 12)}} mois)
+                        dette
                     </td>
                     <td
                         v-if="businessDetail.business_ratio.years_to_repay_debt" 
                         class="text-right text-sm whitespace-nowrap text-gray-500 py-2">
-                        {{price(businessDetail.business_ratio.debt)}}
+                        {{time(businessDetail.business_ratio.years_to_repay_debt)}}
                     </td>
                 </tr>
             </tbody>
@@ -98,8 +98,6 @@ export default {
     },
     props: {
         business: Object,
-        button1: String,
-        button1Callback: Function,
     },
     data() {
         return {
@@ -127,10 +125,28 @@ export default {
         },
         price(price) {
             if (price < 1000) {
-                return `${price}M`
+                return `${price}M €`
             }
-            price = parseInt(price / 100) / 10
-            return `${price}G`
+            price = parseInt(price / 1000)
+            return `${price}G €`
+        },
+        time(years) {
+            if (years === undefined || years === null) {
+                return
+            }
+            if (years < 0) {
+                return `négative`
+            }
+            else if (years === 0) {
+                return `vide`
+            }
+            else if (years < 1) {
+                return `${parseInt(years * 12)} mois`
+            }
+            else if (years === 1) {
+                `${years} année`
+            }
+            return `${years} années`
         },
         syncBusiness() {
             if (this.status === 'syncing') {

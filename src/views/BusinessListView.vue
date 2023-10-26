@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navigation />
     <div 
       v-if="business === null"
       class="flex flex-col items-center pt-20"
@@ -26,10 +27,12 @@
 import axios from 'axios'
 import BusinessCard from '@/components/BusinessCard2.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import Navigation from '@/components/Navigation.vue'
 
 export default {
   name: 'BusinessListView',
   components: {
+    Navigation,
     BusinessCard,
     LoadingSpinner,
   },

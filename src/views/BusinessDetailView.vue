@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navigation :title="business ? business.name : ''" />
     <div 
       v-if="business === null"
       class="flex flex-col items-center pt-20"
@@ -10,70 +11,25 @@
       v-else
       class="max-w-7xl m-auto"
     >
-      <div class="text-xl text-gray-600">{{ business.name }}</div>
-      <div class="text-sm text-gray-400">{{ business.symbol }}</div>
-
-      <div class="text-xl text-gray-600 mt-5">Fondamentaux</div>
-
-      <div class="text-lg text-gray-500 mt-3">Situation finanicère</div>
-      <!-- Trésorerie -->
-      <div>
-        <div class="text-sm text-gray-500 mt-3">Trésorerie : 76M</div>
-        <div class="text-green-600 flex flex-row">
-          <div>
-            <i class="fa-solid fa-money-bill-1 text-4xl mr-1"/>
-          </div>
-          <div>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-          </div>
-        </div>
+      TODO
+      <div class="flex flex-col items-center bg-red-200 space-y-4">
+        <div class="text-primary text-3xl">Revenus</div>
+        <div class="text-gray-500 text-md max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu justo euismod, viverra est at, sagittis magna. Integer gravida a dui dapibus posuere. Aliquam tellus sem, convallis a dui quis, malesuada pretium ligula. Pellentesque mi orci, ultrices non scelerisque vel, luctus consequat felis. Proin quis dui diam. Maecenas eget pulvinar ligula.</div>
+        <div class="text-primary text-xl">Bénéfices</div>
       </div>
-      <!-- Dette -->
-      <div>
-        <div class="text-sm text-gray-500 mt-3">Dette : 50M</div>
-        <div class="text-red-600 flex flex-row">
-          <div>
-            <i class="fa-solid fa-money-bill-1 text-4xl mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-4xl mr-1"/>
-          </div>
-          <div>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-          </div>
-        </div>
-      </div>
-      <!-- Dividend -->
-      <div>
-        <div class="text-sm text-gray-500 mt-3">Dividend : 20M</div>
-        <div class="text-gray-600 flex flex-row">
-          <div>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-            <i class="fa-solid fa-money-bill-1 text-lg mr-1"/>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </template>
 <script>
 import axios from 'axios'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import Navigation from '@/components/NavigationDetail.vue'
 
 export default {
   name: 'BusinessDetailView',
   components: {
     LoadingSpinner,
+    Navigation,
   },
   data() {
     return {
