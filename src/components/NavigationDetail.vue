@@ -15,6 +15,10 @@
         <div class="m-auto">
             <p class="text-2xl">{{ title }}</p>
         </div>
+        <div 
+          style="width:45px;"
+        >
+        </div>
     </nav>
   </header>
 </template>
