@@ -153,7 +153,7 @@ export default {
     },
     operating_cash_flow_trend() {
       // TODO backend
-      return `Marge opérationnelles comfortable et stable sur les dernières années.`
+      return `Marge opérationnelle comfortable et stable sur les dernières années.`
     },
 
     earnings() {
@@ -166,7 +166,7 @@ export default {
       return `Bénéfices total en prenant en compte l'activité, revenus exceptionnels (ex: achat concurrent) et impôts.`
     },
     earnings_trend() {
-      return `Bénéfices comfortable et stable sur les dernières années.`
+      return `Marge net comfortable et stable sur les dernières années.`
     },
     
     debt() {
